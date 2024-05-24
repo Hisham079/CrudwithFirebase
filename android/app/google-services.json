@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "887405986006",
+    "project_id": "taskease-15a17",
+    "storage_bucket": "taskease-15a17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887405986006:android:98184aafc906613ad74977",
+        "android_client_info": {
+          "package_name": "sample.test_ease"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY3NOr14QhGWEG1QF1yny9ppReQL92i0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
