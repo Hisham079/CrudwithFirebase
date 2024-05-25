@@ -4,11 +4,15 @@ import 'package:test_ease/utils/common/app_colors.dart';
 class CustomField extends StatelessWidget {
   final String hintText;
   TextEditingController? controller;
-   CustomField({
-    Key? key,
-    required this.hintText,
-    this.controller
-  }) : super(key: key);
+  String? Function(String?)? validator;
+  bool? obscureText = false;
+  CustomField(
+      {Key? key,
+      required this.hintText,
+      this.controller,
+      this.obscureText,
+      this.validator})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +21,8 @@ class CustomField extends StatelessWidget {
         maxWidth: 400,
       ),
       child: TextFormField(
+        obscureText: obscureText = false,
+        validator: validator,
         controller: controller,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(27),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_ease/utils/common/app_colors.dart';
 
-class GradientButton extends StatelessWidget {
-  GradientButton({Key? key, required this.title, this.onPressed})
+class CustomButton extends StatelessWidget {
+  CustomButton({Key? key, required this.title, this.onPressed})
       : super(key: key);
   Widget title;
   void Function()? onPressed;

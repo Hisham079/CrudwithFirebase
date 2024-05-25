@@ -1,19 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:timezone/data/latest.dart' as tz;
 import 'package:get/get.dart';
-import 'package:test_ease/app/modules/home/bindings/home_binding.dart';
 
 import 'app/routes/app_pages.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  try {
-    await Firebase.initializeApp();
-    print('Firebase initialized successfully');
-  } catch (e) {
-    print('Error initializing Firebase: $e');
-  }
+  tz.initializeTimeZones();
+
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
