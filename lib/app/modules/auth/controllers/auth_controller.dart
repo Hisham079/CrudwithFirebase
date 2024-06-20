@@ -14,8 +14,6 @@ class AuthController extends GetxController {
   final AuthService _authService = AuthService();
   var registerLoading = false.obs;
   var signinLoading = false.obs;
-  var verificationId = ''.obs;
-  var isLoading = false.obs;
 
   @override
   void onInit() {
@@ -24,49 +22,6 @@ class AuthController extends GetxController {
     WidgetsBinding.instance?.addPostFrameCallback((_) {
       checkAuthState();
     });
-  }
-
-  void loginWithPhone(String phoneNumber) async {
-    isLoading.value = true;
-    await _auth.verifyPhoneNumber(
-      phoneNumber: phoneNumber,
-      timeout: Duration(seconds: 60),
-      verificationCompleted: (PhoneAuthCredential credential) async {
-        // Auto-resolve case
-        await _auth.signInWithCredential(credential);
-        isLoading.value = false;
-        // Get.offAll(HomeScreen());
-      },
-      verificationFailed: (FirebaseAuthException e) {
-        isLoading.value = false;
-        Get.snackbar('Error', e.message!);
-      },
-      codeSent: (String verificationId, int? resendToken) {
-        isLoading.value = false;
-        this.verificationId.value = verificationId;
-        // Get.to(OTPScreen());
-      },
-      codeAutoRetrievalTimeout: (String verificationId) {
-        this.verificationId.value = verificationId;
-      },
-    );
-  }
-
-  void verifyOTP(String smsCode) async {
-    isLoading.value = true;
-    PhoneAuthCredential credential = PhoneAuthProvider.credential(
-      verificationId: verificationId.value,
-      smsCode: smsCode,
-    );
-
-    try {
-      await _auth.signInWithCredential(credential);
-      isLoading.value = false;
-      // Get.offAll(HomeScreen());
-    } catch (e) {
-      isLoading.value = false;
-      Get.snackbar('Error', 'Invalid OTP');
-    }
   }
 
   String get userId => _user.value?.uid ?? '';

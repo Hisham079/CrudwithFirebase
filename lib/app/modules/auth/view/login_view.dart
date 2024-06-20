@@ -46,7 +46,6 @@ class LoginView extends GetView<AuthController> {
                 hintText: 'Email',
                 controller: _emailController,
               ),
-              const SizedBox(height: 15),
               CustomField(
                 hintText: 'Password',
                 controller: _passwordController,

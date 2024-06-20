@@ -4,13 +4,21 @@ import 'package:test_ease/app/modules/auth/controllers/auth_controller.dart';
 import 'package:test_ease/app/modules/home/controller/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({super.key});
+  HomeView({super.key});
+  final authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text('Home'),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  authController.signOut();
+                },
+                icon: Icon(Icons.login))
+          ],
         ),
         body: Obx(
           () {

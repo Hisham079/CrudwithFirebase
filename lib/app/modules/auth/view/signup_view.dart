@@ -18,11 +18,11 @@ class SignupView extends GetView<AuthController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.blueColor,
+        backgroundColor: AppColors.whiteColor,
         title: const Text('Signup'),
       ),
-      body: Center(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Center(
           child: Form(
             key: _formKey,
             child: Column(
@@ -68,7 +68,7 @@ class SignupView extends GetView<AuthController> {
                                   fontSize: 17,
                                   color: Theme.of(context).primaryColorLight),
                             )
-                          : Center(
+                          : const Center(
                               child: CircularProgressIndicator(),
                             ),
                       onPressed: () {
