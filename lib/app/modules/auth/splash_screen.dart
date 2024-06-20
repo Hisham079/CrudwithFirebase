@@ -4,13 +4,16 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:test_ease/app/modules/auth/controllers/auth_controller.dart';
 import 'package:test_ease/app/modules/auth/signup_view.dart';
-import 'package:test_ease/app/modules/home/views/home_view.dart';
+import 'package:test_ease/app/modules/home/home_viewe.dart';
 
 class SplashScreen extends GetView<AuthController> {
+   final controller = Get.put(AuthController());
   SplashScreen({super.key});
 
   @override
+  
   Widget build(BuildContext context) {
+   
     WidgetsBinding.instance?.addPostFrameCallback((_) {
       controller.checkAuthState();
     });

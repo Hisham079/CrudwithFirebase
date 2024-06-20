@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_ease/utils/common/app_colors.dart';
 
 class CustomField extends StatelessWidget {
   final String hintText;
@@ -16,33 +15,16 @@ class CustomField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(
-        maxWidth: 400,
-      ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       child: TextFormField(
-        obscureText: obscureText = false,
-        validator: validator,
-        controller: controller,
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(27),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: AppColors.borderColor,
-              width: 3,
-            ),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: AppColors.gradient2,
-              width: 3,
-            ),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          hintText: hintText,
-        ),
-      ),
+          obscureText: obscureText = false,
+          validator: validator,
+          controller: controller,
+          decoration: InputDecoration(
+            contentPadding: const EdgeInsets.all(27),
+            hintText: hintText,
+          )),
     );
   }
 }
